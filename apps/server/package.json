@@ -1,0 +1,31 @@
+{
+  "name": "@rnpa/server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local orchestrator and collector: APK intake, instrumentation, device control, recording and analysis API.",
+  "type": "module",
+  "bin": {
+    "rnpa": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx watch --clear-screen=false src/cli.ts serve"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/multipart": "^10.1.2",
+    "@fastify/static": "^10.1.5",
+    "@rnpa/agent": "0.1.0",
+    "@rnpa/analyzer": "0.1.0",
+    "@rnpa/shared": "0.1.0",
+    "fast-xml-parser": "^5.11.2",
+    "fastify": "^5.12.5",
+    "yauzl": "^3.4.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/yauzl": "^3.4.0",
+    "tsx": "^4.23.15"
+  }
+}

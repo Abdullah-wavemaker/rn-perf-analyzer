@@ -1,0 +1,35 @@
+{
+  "name": "@rnpa/agent",
+  "version": "0.1.0",
+  "private": true,
+  "description": "In-app React Native instrumentation. Use as an SDK, or let the analyzer inject the prebuilt prelude into an APK.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./prelude": "./dist/prelude.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json --emitDeclarationOnly && node build.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.68"
+  },
+  "peerDependenciesMeta": {
+    "react-native": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@rnpa/shared": "0.1.0",
+    "esbuild": "^0.28.2"
+  }
+}

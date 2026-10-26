@@ -1,0 +1,363 @@
+/* Chart chrome: hairline, recessive grid/axes; text in ink tokens only. */
+
+.chart {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  min-width: 0;
+}
+.card .chart {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+.chart-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+.chart-title {
+  font-weight: 600;
+}
+.chart-sub {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  margin-top: 2px;
+}
+.chart-actions {
+  display: flex;
+  gap: 6px;
+  flex: none;
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+.chart-legend.inline {
+  margin-bottom: 0;
+}
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-line {
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+}
+.legend-rect {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+.chart-plot {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+.chart-empty {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 80px;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  border: 1px dashed var(--grid);
+  border-radius: var(--radius);
+}
+.chart-footnote {
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  margin-top: 4px;
+}
+.chart-table {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.chart-svg {
+  overflow: visible;
+}
+.chart-svg:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+.grid-line {
+  stroke: var(--grid);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.axis-line {
+  stroke: var(--axis);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.axis-text {
+  fill: var(--text-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.ref-line {
+  stroke: var(--text-muted);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+  opacity: 0.7;
+}
+.ref-text {
+  fill: var(--text-muted);
+  font-size: 10px;
+}
+.series-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.series-area {
+  opacity: 0.1;
+  stroke: none;
+}
+.crosshair {
+  stroke: var(--text-muted);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.hover-dot {
+  stroke: var(--surface-1);
+  stroke-width: 2;
+}
+.hit-layer {
+  fill: transparent;
+  cursor: crosshair;
+}
+.bar-hit {
+  fill: transparent;
+}
+.bar-row:hover .bar-hit,
+.bar-row:focus-visible .bar-hit {
+  fill: var(--surface-hover);
+}
+.bar-row:focus-visible {
+  outline: none;
+}
+.bar-row:hover .bar-mark,
+.bar-row:focus-visible .bar-mark {
+  filter: brightness(1.1);
+}
+.bar-label {
+  fill: var(--text-secondary);
+  font-size: 12px;
+}
+.bar-value {
+  fill: var(--text-primary);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* tooltip */
+.chart-tooltip {
+  position: fixed;
+  z-index: 70;
+  pointer-events: none;
+  min-width: 140px;
+  max-width: 360px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-pop);
+  font-size: var(--fs-sm);
+}
+.tip-title {
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+  font-size: var(--fs-xs);
+  overflow-wrap: anywhere;
+}
+.tip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.6;
+}
+.tip-key {
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+  flex: none;
+}
+.tip-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.tip-label {
+  color: var(--text-muted);
+}
+.tip-detail {
+  color: var(--text-muted);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+
+/* stacked bar */
+.stacked-bar {
+  position: relative;
+  width: 100%;
+  min-width: 60px;
+  display: flex;
+  align-items: stretch;
+}
+.stacked-fill {
+  display: flex;
+  gap: 2px;
+  height: 100%;
+  min-width: 2px;
+}
+.stacked-seg {
+  flex-basis: 0;
+  min-width: 1px;
+  height: 100%;
+}
+.stacked-seg:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.stacked-seg:hover {
+  filter: brightness(1.1);
+}
+.stacked-none {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1;
+}
+
+/* gauge & meter */
+.gauge {
+  flex: none;
+}
+.gauge-track {
+  stroke: var(--surface-3);
+}
+.gauge-value {
+  fill: var(--text-primary);
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.gauge-caption {
+  fill: var(--text-muted);
+  font-size: 12px;
+}
+.meter {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.meter-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* waterfall */
+.waterfall {
+  font-size: var(--fs-sm);
+}
+.wf-axis,
+.wf-row {
+  display: grid;
+  grid-template-columns: 280px minmax(40px, 1fr) 80px;
+  align-items: center;
+  gap: 8px;
+}
+.wf-axis {
+  height: 22px;
+  border-bottom: 1px solid var(--grid);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+}
+.wf-axis .wf-track {
+  height: 100%;
+}
+.wf-tick {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.wf-rows {
+  max-height: 480px;
+  overflow-y: auto;
+}
+.wf-row {
+  width: 100%;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+  border-radius: 3px;
+  color: inherit;
+}
+.wf-row:hover {
+  background: var(--surface-hover);
+}
+.wf-row.selected {
+  background: var(--surface-active);
+}
+.wf-label-col {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.wf-method {
+  flex: none;
+  width: 44px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.wf-url {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-primary);
+}
+.wf-track {
+  position: relative;
+  height: 100%;
+  background-image: linear-gradient(to right, var(--grid) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
+.wf-bar {
+  position: absolute;
+  top: 6px;
+  height: 10px;
+  min-width: 2px;
+  border-radius: 0 3px 3px 0;
+}
+.wf-bar.pending {
+  opacity: 0.45;
+}
+.wf-dur-col {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+}
+.wf-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  color: var(--text-muted);
+}

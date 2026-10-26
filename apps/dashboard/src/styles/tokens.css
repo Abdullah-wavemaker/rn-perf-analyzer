@@ -1,0 +1,157 @@
+/*
+ * Design tokens. Light is the default; dark is a selected set of steps (not an
+ * automatic inversion). Chart colors follow the validated reference palette
+ * (categorical order is the CVD-safety mechanism — do not reorder).
+ */
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: #f4f4f1;
+  --surface-1: #fcfcfb;
+  --surface-2: #f6f6f3;
+  --surface-3: #ecebe6;
+  --surface-sunken: #efeee9;
+  --surface-hover: rgba(11, 11, 11, 0.045);
+  --surface-active: rgba(42, 120, 214, 0.1);
+  --sidebar-bg: #f0efeb;
+
+  /* Ink */
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #7a7973;
+  --text-inverse: #ffffff;
+  --text-link: #1c5cab;
+
+  /* Lines */
+  --border: rgba(11, 11, 11, 0.1);
+  --border-strong: rgba(11, 11, 11, 0.18);
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+
+  /* Accent (blue ramp) */
+  --accent: #2a78d6;
+  --accent-strong: #1c5cab;
+  --accent-soft: #cde2fb;
+  --accent-wash: rgba(42, 120, 214, 0.1);
+  --focus-ring: #2a78d6;
+
+  /* Categorical series (fixed order) */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+  --series-other: #a9a8a0;
+
+  /* Diverging poles + neutral midpoint */
+  --div-neg: #2a78d6;
+  --div-pos: #e34948;
+  --div-mid: #f0efec;
+
+  /* Status (never themed, never used as a series) */
+  --good: #0ca30c;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --info: #898781;
+  --good-text: #006300;
+  --warning-text: #8a5a00;
+  --serious-text: #a2471f;
+  --critical-text: #b02a2a;
+  --good-wash: rgba(12, 163, 12, 0.12);
+  --warning-wash: rgba(250, 178, 25, 0.18);
+  --serious-wash: rgba(236, 131, 90, 0.16);
+  --critical-wash: rgba(208, 59, 59, 0.12);
+  --info-wash: rgba(137, 135, 129, 0.14);
+
+  /* Type */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-md: 13px;
+  --fs-lg: 15px;
+  --fs-xl: 18px;
+  --fs-2xl: 24px;
+  --fs-hero: 52px;
+
+  /* Space & shape */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-1: 0 1px 2px rgba(11, 11, 11, 0.06);
+  --shadow-pop: 0 8px 28px rgba(11, 11, 11, 0.16), 0 1px 3px rgba(11, 11, 11, 0.1);
+
+  --sidebar-w: 208px;
+  --topbar-h: 48px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg: #0d0d0d;
+    --surface-1: #1a1a19;
+    --surface-2: #212120;
+    --surface-3: #2a2a28;
+    --surface-sunken: #141413;
+    --surface-hover: rgba(255, 255, 255, 0.05);
+    --surface-active: rgba(57, 135, 229, 0.18);
+    --sidebar-bg: #121211;
+
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #8f8e88;
+    --text-inverse: #0b0b0b;
+    --text-link: #86b6ef;
+
+    --border: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.18);
+    --grid: #2c2c2a;
+    --axis: #383835;
+
+    --accent: #3987e5;
+    --accent-strong: #86b6ef;
+    --accent-soft: #184f95;
+    --accent-wash: rgba(57, 135, 229, 0.16);
+    --focus-ring: #6da7ec;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #008300;
+    --series-7: #9085e9;
+    --series-8: #e66767;
+    --series-other: #5d5c57;
+
+    --div-neg: #3987e5;
+    --div-pos: #e66767;
+    --div-mid: #383835;
+
+    --good-text: #0ca30c;
+    --warning-text: #fab219;
+    --serious-text: #ec835a;
+    --critical-text: #e66767;
+    --good-wash: rgba(12, 163, 12, 0.18);
+    --warning-wash: rgba(250, 178, 25, 0.16);
+    --serious-wash: rgba(236, 131, 90, 0.16);
+    --critical-wash: rgba(208, 59, 59, 0.2);
+    --info-wash: rgba(137, 135, 129, 0.18);
+
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-pop: 0 10px 32px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+}

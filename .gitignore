@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Never commit APKs, signing material or recorded data
+*.apk
+*.aab
+*.jks
+*.keystore
+.rnpa/
